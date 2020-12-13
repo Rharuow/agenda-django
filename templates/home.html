@@ -1,0 +1,36 @@
+{% extends 'generic.html' %}
+
+{% load static %}
+
+{% block title %} AGENDA {% endblock %}
+
+{% block content %}
+
+{% for message in messages %}
+  <div class="alert fixed-top text-center {{ message.tags }} alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+{% endfor %}
+
+<div class="home d-flex justify-content-center align-items-center">
+  <div class="home-box d-flex justify-content-around rounded flex-wrap">
+    <div class="home-box-title w-100">
+      <h1 class="title text-center">Bem vindo ao Agenda</h1>
+    </div>
+    <a href="{% url 'user:login' %}" class="container-login100-form-btn mt-2">
+      <button class="login100-form-btn">
+        Entrar
+      </button>
+    </a>
+    <a href="{% url 'user:signup' %}" class="container-login100-form-btn mt-2">
+      <button class="login100-form-btn">
+        Cadastrar
+      </button>
+    </a>
+  </div>
+</div>
+
+{% endblock %}

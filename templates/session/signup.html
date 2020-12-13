@@ -1,0 +1,89 @@
+{% extends 'generic.html' %}
+
+{% load static %}
+
+{% block title %} Cadastramento {% endblock %}
+
+{% block content %}
+<div class="box d-flex align-items-center justify-content-center vh-100">
+
+{% for message in messages %}
+  <div class="alert fixed-top text-center {{ message.tags }} alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+{% endfor %}
+
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <form class="login100-form validate-form d-flex flex-wrap align-items-center justify-content-center p-3"
+          action="{% url 'user:new' %}" method="POST">
+          {% csrf_token %}
+          <span class="login100-form-title pb-1">
+            Cadastramento
+          </span>
+
+          <div class="wrap-input100 ml-3 mr-3 mt-2 validate-input">
+            <input class="input100" type="text" name="username">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Nome</span>
+          </div>
+
+          <div class="wrap-input100 ml-3 mr-3 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input class="input100" type="text" name="email">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Email</span>
+          </div>
+
+          <label class="wrap-input100 ml-3 mr-3 validate-input">
+            <input class="input100" type="file" name="photo" id="input-photo" onchange="getImage()" hidden>
+            <span class="focus-input100"></span>
+            <span class="label-input100" id="photo">Foto</span>
+          </label>
+
+          <div class="wrap-input100 ml-3 mr-3 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" name="pass">
+            <span class="focus-input100"></span>
+            <span class="label-input100">senha</span>
+          </div>
+
+          <div class="wrap-input100 ml-3 mr-3 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" name="pass_confirm">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Confirme sua senha</span>
+          </div>
+
+          <div class="container-login100-form-btn ml-3 mr-3">
+            <button class="login100-form-btn">
+              Cadastrar
+            </button>
+          </div>
+
+          <div class="container-login100-form-btn ml-3 mr-3 mt-2">
+            <a href="{% url 'home' %}" class="login100-form-btn">
+              Voltar
+            </a>
+          </div>
+        </form>
+
+        <div class="login100-more" style="background-image: url('../../static/images/bg-01.jpg');">
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<script>
+ function getImage() {
+  let input = document.getElementById("input-photo")
+  let label = document.getElementById("photo")
+
+  if(input.value !== '') label.innerHTML = input.value
+  else label.innerHTML = 'Foto'
+  
+ }
+</script>
+{% endblock %}

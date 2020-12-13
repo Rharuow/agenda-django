@@ -1,0 +1,16 @@
+.home {
+  height: 100vh;
+
+  .home-box {
+    max-width: 50rem;
+    max-height: 37.5rem;
+    background-color: $white4;
+    padding: 2rem;
+
+    .home-box-title {
+      .title {
+        color: $text-color;
+      }
+    }
+  }
+}

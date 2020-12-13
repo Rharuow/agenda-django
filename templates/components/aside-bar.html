@@ -1,0 +1,38 @@
+{% load static %}
+{% load fontawesome_5 %}
+<div class="dashboard-aside-bar">
+  <div class="aside-bar-user">
+    <div class="user-avatar rounded-circle">
+      <img src="{% static 'images/avatar/default.png' %}" alt="" class="user-avatar-img" />
+    </div>
+    <div class="user-name">
+      <h1>{{profile.user.username}}</h1>
+    </div>
+  </div>
+  <div class="aside-bar-menu">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'dashboard:home' %}">{% fa5_icon 'home' 'fa' %} Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dashboard:users' %}">{% fa5_icon 'users' 'fas' %} Amigos</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">{% fa5_icon 'edit' 'fas' %} Registros</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'dashboard:registers' %}">{% fa5_icon 'feather' 'fas' %} Meus Registros</a>
+          <a class="dropdown-item" href="{% url 'dashboard:registers_public' %}">{% fa5_icon 'marker' 'fas' %} Top Registros</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'dashboard:register_create' %}">{% fa5_icon 'pen' 'fas' %} Criar Registros</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dashboard:account' %}">{% fa5_icon 'user-cog' 'fas' %} Minha conta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-danger" href="{% url 'user:logout' %}">{% fa5_icon 'sign-out-alt' 'fas' %} Sair</a>
+      </li>
+    </ul>
+  </div>
+</div>

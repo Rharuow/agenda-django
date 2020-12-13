@@ -1,0 +1,18 @@
+{% extends 'generic.html' %}
+
+{% load fontawesome_5 %}
+{% load static %}
+
+{% block title %} {{user.username}} {% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+  {% include 'components/aside-bar.html' %}
+
+  <div class="dashboard-content d-flex flex-wrap justify-content-between">
+    {% include 'pages/dashboard/content/users.html' %}
+  </div>
+</div>
+
+{% endblock %}

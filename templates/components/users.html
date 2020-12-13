@@ -1,0 +1,26 @@
+{% load static %}
+{% load fontawesome_5 %}
+
+{% if users.count > 0 %}
+
+    {% for user in users %}
+    <div class="card card-user w-25 m-1">
+        <div class="card-header">
+            <img class="card-img-top rounded-circle" src="{% static 'images/avatar/default.png' %}" alt="Card image cap">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{user.username}}</h5>
+            <p class="card-text">{{user}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+{% else %}
+
+    <div class="d-flex align-items-center">
+        <div class="box-message bg-info p-4 rounded">
+            <span class="text-center text-light">Sem usuários no momento</span>
+        </div>
+    </div>
+
+{% endif %}

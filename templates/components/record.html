@@ -1,0 +1,25 @@
+{% load static %}
+{% load fontawesome_5 %}
+<a class="card dashboard-card-body mt-3" href="{% url 'dashboard:registers_index' %}">
+    <div class="card-body">
+        <h5 class="card-title card-body-title">Título do registro</h5>
+        <p class="card-text card-body-text">Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+        printer took a galley of type and scrambled it to make a type specimen book. It has survived not only
+        five
+        centuries,</p>
+    </div>
+    <div class="card-footer text-muted d-flex justify-content-between align-items-center">
+        2 dais atrás | x votos
+
+        {% if public %}
+        <button class="btn btn-info ">
+            <img src="{% static 'images/avatar/default.png' %}" alt="" width="32px" class="rounded-circle" />
+            Beltrano
+        </button>
+        {% else %}
+            <button class="btn btn-danger">{% fa5_icon 'trash-alt' 'fas' %}</button>
+        {% endif %}
+
+    </div>
+</a>

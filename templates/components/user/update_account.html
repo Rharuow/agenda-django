@@ -1,0 +1,36 @@
+{% load static %}
+{% load fontawesome_5 %}
+<form action="" class="account-form login100-form validate-form d-flex flex-wrap align-items-center justify-content-center">
+      <label for="avatar" class="account-form-avatar rounded-circle">
+        <img src="{% static 'images/avatar/default.png' %}" class="rounded-circle" alt="" width="240" />
+        <div class="avatar-overlayer rounded-circle">
+          <span>Escolha sua foto</span>
+        </div>
+      </label>
+      <input type="file" name="avatar" id="avatar" hidden />
+
+      <div class="wrap-input100 mt-1 validate-input">
+        <input class="input100" type="text" name="username" value="Fulano de tal">
+        <span class="focus-input100"></span>
+        <span class="label-input100">Fulano de tal</span>
+      </div>
+
+      <div class="wrap-input100 mt-1 validate-input">
+        <input class="input100" type="password" name="password">
+        <span class="focus-input100"></span>
+        <span class="label-input100">Digite sua senha</span>
+      </div>
+
+      <div class="wrap-input100 mt-1 validate-input">
+        <input class="input100" type="password" name="password2">
+        <span class="focus-input100"></span>
+        <span class="label-input100">Confirme sua senha</span>
+      </div>
+
+      <div class="container-login100-form-btn">
+        <a href="{% url 'dashboard:access' %}" class="login100-form-btn">
+          Salvar
+        </a>
+      </div>
+
+    </form>
